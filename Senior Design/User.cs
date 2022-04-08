@@ -14,7 +14,13 @@ namespace Senior_Design
     {
         public User()
         {
+            //initalize
             InitializeComponent();
+        }
+
+        private void UserClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

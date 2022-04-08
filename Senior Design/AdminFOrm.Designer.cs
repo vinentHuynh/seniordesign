@@ -28,60 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dgvAssets = new System.Windows.Forms.DataGridView();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.cmbFields = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnEdit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAssets
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 89);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(746, 379);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAssets.Location = new System.Drawing.Point(12, 89);
+            this.dgvAssets.Name = "dgvAssets";
+            this.dgvAssets.Size = new System.Drawing.Size(746, 379);
+            this.dgvAssets.TabIndex = 0;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(447, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnAdd.Location = new System.Drawing.Point(497, 53);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(83, 30);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.Location = new System.Drawing.Point(584, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 30);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.btnDelete.Location = new System.Drawing.Point(586, 53);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(83, 30);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // textBox1
+            // txtFilter
             // 
-            this.textBox1.Location = new System.Drawing.Point(32, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtFilter.Location = new System.Drawing.Point(32, 53);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(100, 20);
+            this.txtFilter.TabIndex = 3;
             // 
-            // comboBox1
+            // cmbFields
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(194, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cmbFields.FormattingEnabled = true;
+            this.cmbFields.Location = new System.Drawing.Point(232, 53);
+            this.cmbFields.Name = "cmbFields";
+            this.cmbFields.Size = new System.Drawing.Size(121, 21);
+            this.cmbFields.TabIndex = 4;
             // 
             // menuStrip1
             // 
@@ -108,22 +109,33 @@
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.SignOutToolStripMenuItem_Click);
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(675, 53);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(83, 30);
+            this.btnEdit.TabIndex = 6;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(828, 474);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.cmbFields);
+            this.Controls.Add(this.txtFilter);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.dgvAssets);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminForm";
             this.Text = "Admin";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenuClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -133,14 +145,15 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvAssets;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.ComboBox cmbFields;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 

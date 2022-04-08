@@ -29,8 +29,9 @@ namespace Senior_Design
             string password;
 
             username = this.txtUsername.Text;
+            //need to encrypt password
             password = this.txtPassword.Text;
-
+            //password checking
             if (username == "admin" && password == "password")
             {
                 AdminForm adminform = new AdminForm();
