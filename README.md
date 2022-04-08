@@ -8,8 +8,7 @@ Multiple pages (after profiles are made):
 - Inventory Count
 - AutoSize feature
 - Help feature
+- Small tutorial vid (maybe)
 - User friendly
 - Metrics (maybe?)
 - maintenance request
-- 
-
