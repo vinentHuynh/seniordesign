@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Senior_Design
@@ -15,6 +9,9 @@ namespace Senior_Design
         public MainMenu()
         {
             InitializeComponent();
+            string str;
+            //SqlConnection myConn = new SqlConnection("server connection");
+            //myConn.Open();
             lblError.Hide();
         }
 
@@ -51,6 +48,11 @@ namespace Senior_Design
                 lblError.Show();
                 lblError.Text = "Incorrect username or password";
             }
+        }
+
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

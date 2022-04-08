@@ -71,7 +71,7 @@
             // 
             // txtFilter
             // 
-            this.txtFilter.Location = new System.Drawing.Point(32, 53);
+            this.txtFilter.Location = new System.Drawing.Point(50, 59);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(100, 20);
             this.txtFilter.TabIndex = 3;
@@ -79,7 +79,7 @@
             // cmbFields
             // 
             this.cmbFields.FormattingEnabled = true;
-            this.cmbFields.Location = new System.Drawing.Point(232, 53);
+            this.cmbFields.Location = new System.Drawing.Point(269, 59);
             this.cmbFields.Name = "cmbFields";
             this.cmbFields.Size = new System.Drawing.Size(121, 21);
             this.cmbFields.TabIndex = 4;
@@ -90,7 +90,7 @@
             this.accountToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(828, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(781, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(828, 474);
+            this.ClientSize = new System.Drawing.Size(781, 475);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cmbFields);
             this.Controls.Add(this.txtFilter);

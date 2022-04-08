@@ -89,6 +89,7 @@
             this.btnCreate.TabIndex = 5;
             this.btnCreate.Text = "Create Account";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // lblError
             // 

@@ -28,7 +28,7 @@ namespace Senior_Design
         //delete button
         private void Button2_Click(object sender, EventArgs e)
         {
-
+            
         }
         //add button
         private void Button1_Click(object sender, EventArgs e)
