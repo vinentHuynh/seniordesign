@@ -13,6 +13,40 @@ namespace Senior_Design
             //SqlConnection myConn = new SqlConnection("server connection");
             //myConn.Open();
             lblError.Hide();
+
+            try
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "sam-database.database.windows.net";
+                builder.UserID = "samadmin";
+                builder.Password = "Seniordesign2022";
+                builder.InitialCatalog = "Assets";
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    Console.WriteLine("\nQuery data example:");
+                    Console.WriteLine("=========================================\n");
+
+                    String sql = "SELECT description FROM dbo.asset_location";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                lblError.Text=  reader.GetString(0);
+                                lblError.Show();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
         private void Label2_Click(object sender, EventArgs e)

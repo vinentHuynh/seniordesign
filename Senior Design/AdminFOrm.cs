@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace Senior_Design
 {
@@ -24,7 +25,13 @@ namespace Senior_Design
             //OR automatically add data from sql 
             //https://stackoverflow.com/questions/18113278/populate-a-datagridview-with-sql-query-results
 
+            ConnectionDB connectionDB = new ConnectionDB();
+            connectionDB.OpenConection();
+            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from dbo.asset_location");
+            connectionDB.CloseConnection();
         }
+       
+        
         //delete button
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -46,6 +53,16 @@ namespace Senior_Design
         private void MainMenuClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbFields_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
