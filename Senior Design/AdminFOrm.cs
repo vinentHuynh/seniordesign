@@ -53,28 +53,54 @@ namespace Senior_Design
         //delete button
         private void Button2_Click(object sender, EventArgs e)
         {
-
-           
             Int32 selectedRowCount = this.dgvAssets.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
             {
-                // change deleted column to 1 for selected assets (soft delete)
-                ConnectionDB connectionDB = new ConnectionDB();
-                connectionDB.OpenConnection();
-                for (int i = 0; i < selectedRowCount; i++)
-                {
-                    // create command text with the selected row's id
-                    SqlCommand cmd = new SqlCommand(
-                        "UPDATE asset" +
-                        "SET deleted = 1" +
-                        "WHERE id = @id"
-                    );
-                    cmd.Parameters.AddWithValue("@id", this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString());
+                // display confirmation message with list of selected records
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-                    // pass the command to ExecuteQueries() to be executed
-                    connectionDB.ExecuteQueries(cmd.CommandText);
+                sb.Append("Are you sure you want to delete the following records?\n");
+
+                for (int i = selectedRowCount - 1; i >= 0; i--)
+                {
+                    sb.Append(this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString());
+                    sb.Append(" ");
+
+                    // display different fields depending on the current table
+                    if (currentTable == "dbo.asset")
+                    {
+
+                    }
+                    else if (currentTable == "dbo.user")
+                    {
+
+                    }
+                    sb.Append(this.dgvAssets.SelectedRows[i].Cells["name"].Value.ToString());
+
+                    sb.Append(Environment.NewLine);
                 }
-                connectionDB.CloseConnection();
+
+                DialogResult confirmDelete = MessageBox.Show(sb.ToString(), "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                // if user clicks OK then delete assets, else do nothing
+                if (confirmDelete == DialogResult.OK)
+                {
+                    ConnectionDB connectionDB = new ConnectionDB();
+                    connectionDB.OpenConnection();
+
+                    // change deleted column to 1 for selected assets (soft delete)
+                    for (int i = 0; i < selectedRowCount; i++)
+                    {
+                        string query = "UPDATE asset SET deleted = 1 WHERE id = " + this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString();
+                        connectionDB.ExecuteQueries(query);
+                    }
+
+                    connectionDB.CloseConnection();
+                }
+            }
+            else
+            {
+                DialogResult noneSelected = MessageBox.Show("No rows selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             showdata();    // refresh screen
