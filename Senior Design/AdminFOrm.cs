@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.IO;
 
 namespace Senior_Design
 {
     public partial class AdminForm : Form
     {
-       
+        string currentTable = "dbo.asset";
 
         public AdminForm()
         {
@@ -36,8 +37,18 @@ namespace Senior_Design
         {
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from dbo.asset where deleted = 0");
-            SqlDataReader dr = connectionDB.DataReader("SELECT * from dbo.asset");
+            string query = "SELECT * from " + currentTable;
+            bool flag = false;
+            if (currentTable == "dbo.asset")
+            {
+                query += " where deleted = 0";
+                flag = true;
+
+            }
+
+            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from " + currentTable);
+            SqlDataReader dr = connectionDB.DataReader("SELECT * from " + currentTable);
+            
             dr.Read();
             var columns = new List<string>();
             columns.Add("");
@@ -47,7 +58,8 @@ namespace Senior_Design
             }
             this.cmbFields.DataSource = columns;
             connectionDB.CloseConnection();
-            
+            if (flag)
+                this.dgvAssets.Columns["deleted"].Visible = false;
         }
         
         //delete button
@@ -116,14 +128,68 @@ namespace Senior_Design
                 
                 ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from dbo.asset_location WHERE " + this.cmbFields.Text +
+            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from " +currentTable + " WHERE " + this.cmbFields.Text +
                 " LIKE '%" + this.txtFilter.Text + "%'");
+            }
+            else if(this.txtFilter.Text == null)
+            {
+                ConnectionDB connectionDB = new ConnectionDB();
+                connectionDB.OpenConnection();
+                this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from " + currentTable + " WHERE " + this.cmbFields.Text +
+                    " LIKE '%" + this.txtFilter.Text + "%'");
+            }
+            else
+            {
+                DialogResult res = MessageBox.Show("Please select a column.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }
 
         private void txtRefresh_Click(object sender, EventArgs e)
         {
+            showdata();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            ConnectionDB connectionDB = new ConnectionDB();
+            connectionDB.OpenConnection();
+
+            SqlDataReader dr = connectionDB.DataReader("SELECT * from dbo.asset where deleted = 0");
+                
+
+            string fileName = "DatabaseOutput.csv";
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            StreamWriter sw = new StreamWriter(Path.Combine(docPath,fileName));
+            object[] output = new object[dr.FieldCount];
+
+            for (int i = 0; i < dr.FieldCount; i++)
+                output[i] = dr.GetName(i);
+
+            sw.WriteLine(string.Join(",", output));
+
+            while (dr.Read())
+            {
+                dr.GetValues(output);
+                sw.WriteLine(string.Join(",", output));
+            }
+            DialogResult res = MessageBox.Show("Database exported in MyDocuments folder", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            
+            sw.Close();
+            dr.Close();
+            connectionDB.CloseConnection();
+        }
+
+        private void maintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentTable = "dbo.maintenance";
+            showdata();
+        }
+
+        private void assetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentTable = "dbo.asset";
             showdata();
         }
     }
