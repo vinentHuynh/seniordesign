@@ -164,3 +164,6 @@ C:\Users\ssaat\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Se
 C:\Users\ssaat\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.pdb
 C:\Users\ssaat\OneDrive\Documents\GitHub\seniordesign\Senior Design\bin\Debug\System.Data.SqlClient.dll
 C:\Users\ssaat\OneDrive\Documents\GitHub\seniordesign\Senior Design\bin\Debug\System.Data.SqlClient.xml
+C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.BorrowForm.resources
+C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\bin\Debug\System.Data.SqlClient.dll
+C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\bin\Debug\System.Data.SqlClient.xml

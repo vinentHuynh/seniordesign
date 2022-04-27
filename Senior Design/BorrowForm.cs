@@ -21,7 +21,7 @@ namespace Senior_Design
 
             //establish connection to database, only pull borrowable assets
             ConnectionDB connectionDB = new ConnectionDB();
-            connectionDB.OpenConection();
+            connectionDB.OpenConnection();
             this.dataGridView1.DataSource = connectionDB.ShowDataInGridView("SELECT * FROM 'dbo.asset'"/*WHERE borrow = 1*/);
             connectionDB.CloseConnection();
         }

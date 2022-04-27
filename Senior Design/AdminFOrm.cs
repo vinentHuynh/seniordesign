@@ -43,7 +43,7 @@ namespace Senior_Design
        void showdata()
         {
             ConnectionDB connectionDB = new ConnectionDB();
-            connectionDB.OpenConection();
+            connectionDB.OpenConnection();
             this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from dbo.asset where deleted = 0");
             SqlDataReader dr = connectionDB.DataReader("SELECT * from dbo.asset");
             dr.Read();
@@ -123,7 +123,7 @@ namespace Senior_Design
             {
                 
                 ConnectionDB connectionDB = new ConnectionDB();
-            connectionDB.OpenConection();
+            connectionDB.OpenConnection();
             this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from dbo.asset_location WHERE " + this.cmbFields.Text +
                 " LIKE '%" + this.txtFilter.Text + "%'");
             }
