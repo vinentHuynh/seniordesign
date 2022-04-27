@@ -13,15 +13,7 @@ namespace Senior_Design
 {
     public partial class AdminForm : Form
     {
-        public void ListAllAssets()
-        {
-            ConnectionDB connectionDB = new ConnectionDB();
-            connectionDB.OpenConnection();
-            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView(
-                "SELECT * from dbo.asset WHERE deleted = 0"
-            );
-            connectionDB.CloseConnection();
-        }
+       
 
         public AdminForm()
         {
@@ -55,7 +47,7 @@ namespace Senior_Design
             }
             this.cmbFields.DataSource = columns;
             connectionDB.CloseConnection();
-            ListAllAssets();
+            
         }
         
         //delete button
@@ -85,7 +77,7 @@ namespace Senior_Design
                 connectionDB.CloseConnection();
             }
 
-            ListAllAssets();    // refresh screen
+            showdata();    // refresh screen
         }
 
         //add button
