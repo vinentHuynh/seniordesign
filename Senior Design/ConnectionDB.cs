@@ -27,7 +27,7 @@ namespace Senior_Design
             con = new SqlConnection(ConnectionString);
             con.Open();
         }
-
+        
 
         public void CloseConnection()
         {

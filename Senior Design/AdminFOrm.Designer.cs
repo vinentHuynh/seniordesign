@@ -37,6 +37,10 @@
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.Button();
+            this.txtRefresh = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -120,12 +124,54 @@
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(416, 56);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(75, 23);
+            this.txtSearch.TabIndex = 7;
+            this.txtSearch.Text = "Search";
+            this.txtSearch.UseVisualStyleBackColor = true;
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            // 
+            // txtRefresh
+            // 
+            this.txtRefresh.Location = new System.Drawing.Point(416, 28);
+            this.txtRefresh.Name = "txtRefresh";
+            this.txtRefresh.Size = new System.Drawing.Size(75, 23);
+            this.txtRefresh.TabIndex = 8;
+            this.txtRefresh.Text = "Refresh";
+            this.txtRefresh.UseVisualStyleBackColor = true;
+            this.txtRefresh.Click += new System.EventHandler(this.txtRefresh_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(505, 28);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 9;
+            this.btnImport.Text = "Import CSV";
+            this.btnImport.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(586, 24);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Export CSV";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(781, 475);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnImport);
+            this.Controls.Add(this.txtRefresh);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cmbFields);
             this.Controls.Add(this.txtFilter);
@@ -156,6 +202,10 @@
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button txtSearch;
+        private System.Windows.Forms.Button txtRefresh;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button button2;
     }
 }
 
