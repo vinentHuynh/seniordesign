@@ -112,7 +112,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "BorrowForm";
             this.Text = "Borrow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenuClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BorrowMenuClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

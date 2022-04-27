@@ -31,7 +31,7 @@ namespace Senior_Design
             
         }
 
-        private void MainMenuClosing(object sender, FormClosingEventArgs e)
+        private void BorrowMenuClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
