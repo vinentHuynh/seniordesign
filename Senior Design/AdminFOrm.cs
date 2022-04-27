@@ -13,6 +13,16 @@ namespace Senior_Design
 {
     public partial class AdminForm : Form
     {
+        public void ListAllAssets()
+        {
+            ConnectionDB connectionDB = new ConnectionDB();
+            connectionDB.OpenConnection();
+            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView(
+                "SELECT * from dbo.asset WHERE deleted = 0"
+            );
+            connectionDB.CloseConnection();
+        }
+
         public AdminForm()
         {
             InitializeComponent();
@@ -45,6 +55,7 @@ namespace Senior_Design
             }
             this.cmbFields.DataSource = columns;
             connectionDB.CloseConnection();
+            ListAllAssets();
         }
         
         //delete button
@@ -52,7 +63,31 @@ namespace Senior_Design
         {
 
            
+            Int32 selectedRowCount = this.dgvAssets.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                // change deleted column to 1 for selected assets (soft delete)
+                ConnectionDB connectionDB = new ConnectionDB();
+                connectionDB.OpenConnection();
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    // create command text with the selected row's id
+                    SqlCommand cmd = new SqlCommand(
+                        "UPDATE asset" +
+                        "SET deleted = 1" +
+                        "WHERE id = @id"
+                    );
+                    cmd.Parameters.AddWithValue("@id", this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString());
+
+                    // pass the command to ExecuteQueries() to be executed
+                    connectionDB.ExecuteQueries(cmd.CommandText);
+                }
+                connectionDB.CloseConnection();
+            }
+
+            ListAllAssets();    // refresh screen
         }
+
         //add button
         private void Button1_Click(object sender, EventArgs e)
         {
