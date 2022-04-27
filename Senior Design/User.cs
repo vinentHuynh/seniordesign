@@ -22,5 +22,15 @@ namespace Senior_Design
         {
             Application.Exit();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
