@@ -41,6 +41,11 @@
             this.txtRefresh = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.lblColumn = new System.Windows.Forms.Label();
+            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +80,7 @@
             // 
             // txtFilter
             // 
-            this.txtFilter.Location = new System.Drawing.Point(50, 59);
+            this.txtFilter.Location = new System.Drawing.Point(60, 58);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(100, 20);
             this.txtFilter.TabIndex = 3;
@@ -84,7 +89,7 @@
             // cmbFields
             // 
             this.cmbFields.FormattingEnabled = true;
-            this.cmbFields.Location = new System.Drawing.Point(269, 59);
+            this.cmbFields.Location = new System.Drawing.Point(242, 58);
             this.cmbFields.Name = "cmbFields";
             this.cmbFields.Size = new System.Drawing.Size(121, 21);
             this.cmbFields.TabIndex = 4;
@@ -93,7 +98,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.accountToolStripMenuItem});
+            this.accountToolStripMenuItem,
+            this.tablesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(781, 24);
@@ -146,7 +152,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(505, 28);
+            this.btnImport.Location = new System.Drawing.Point(497, 27);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 9;
@@ -155,12 +161,54 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(586, 24);
+            this.button2.Location = new System.Drawing.Point(586, 27);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Export CSV";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Location = new System.Drawing.Point(12, 61);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(44, 13);
+            this.lblFilter.TabIndex = 11;
+            this.lblFilter.Text = "Search:";
+            // 
+            // lblColumn
+            // 
+            this.lblColumn.AutoSize = true;
+            this.lblColumn.Location = new System.Drawing.Point(191, 61);
+            this.lblColumn.Name = "lblColumn";
+            this.lblColumn.Size = new System.Drawing.Size(45, 13);
+            this.lblColumn.TabIndex = 12;
+            this.lblColumn.Text = "Column:";
+            // 
+            // tablesToolStripMenuItem
+            // 
+            this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.assetsToolStripMenuItem,
+            this.maintenanceToolStripMenuItem});
+            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.tablesToolStripMenuItem.Text = "Tables";
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.maintenanceToolStripMenuItem.Text = "Maintenance";
+            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
+            // 
+            // assetsToolStripMenuItem
+            // 
+            this.assetsToolStripMenuItem.Name = "assetsToolStripMenuItem";
+            this.assetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.assetsToolStripMenuItem.Text = "Assets";
+            this.assetsToolStripMenuItem.Click += new System.EventHandler(this.assetsToolStripMenuItem_Click);
             // 
             // AdminForm
             // 
@@ -168,6 +216,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(781, 475);
+            this.Controls.Add(this.lblColumn);
+            this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.txtRefresh);
@@ -206,6 +256,11 @@
         private System.Windows.Forms.Button txtRefresh;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblFilter;
+        private System.Windows.Forms.Label lblColumn;
+        private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assetsToolStripMenuItem;
     }
 }
 
