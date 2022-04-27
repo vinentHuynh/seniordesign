@@ -16,7 +16,7 @@ namespace Senior_Design
         
         SqlConnection con;
 
-        public void OpenConection()
+        public void OpenConnection()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "sam-database.database.windows.net";
