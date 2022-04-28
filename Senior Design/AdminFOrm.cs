@@ -81,29 +81,41 @@ namespace Senior_Design
                     // display different fields depending on the current table
                     if (currentTable == "dbo.asset")
                     {
-
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["asset"].Value.ToString());
                     }
-                    else if (currentTable == "dbo.user")
+                    else if (currentTable == "dbo.users")
                     {
-
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["first_name"].Value.ToString());
+                        sb.Append(" ");
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["last_name"].Value.ToString());
                     }
-                    sb.Append(this.dgvAssets.SelectedRows[i].Cells["name"].Value.ToString());
-
                     sb.Append(Environment.NewLine);
                 }
 
                 DialogResult confirmDelete = MessageBox.Show(sb.ToString(), "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-                // if user clicks OK then delete assets, else do nothing
+                // if user clicks OK then delete records, else do nothing
                 if (confirmDelete == DialogResult.OK)
                 {
                     ConnectionDB connectionDB = new ConnectionDB();
                     connectionDB.OpenConnection();
 
-                    // change deleted column to 1 for selected assets (soft delete)
                     for (int i = 0; i < selectedRowCount; i++)
                     {
-                        string query = "UPDATE asset SET deleted = 1 WHERE id = " + this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString();
+                        string query = "";
+                        string id = this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString();
+
+                        // use different queries depending on the current table
+                        if (currentTable == "dbo.asset")
+                        {
+                            // change deleted column to 1 for selected assets (soft delete)
+                            query = "UPDATE asset SET deleted = 1 WHERE id = " + id;
+                        }
+                        else if (currentTable == "dbo.user")
+                        {
+                            // delete selected users from users table (hard delete)
+                            query = "DELETE FROM users WHERE id = " + id;
+                        }
                         connectionDB.ExecuteQueries(query);
                     }
 
