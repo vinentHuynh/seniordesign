@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using System.IO;
+using Microsoft.VisualBasic.FileIO;
 
 namespace Senior_Design
 {
@@ -109,8 +110,48 @@ namespace Senior_Design
         {
             Application.Exit();
         }
+        private static DataTable GetDataTabletFromCSVFile(string csv_file_path)
+        {
+            DataTable csvData = new DataTable();
+            try
+            {
+                using (TextFieldParser csvReader = new TextFieldParser(csv_file_path))
+                {
+                    csvReader.SetDelimiters(new string[] { "," });
+                    csvReader.HasFieldsEnclosedInQuotes = true;
+                    string[] colFields = csvReader.ReadFields();
+                    foreach (string column in colFields)
+                    {
+                        DataColumn datecolumn = new DataColumn(column);
+                        datecolumn.AllowDBNull = true;
+                        csvData.Columns.Add(datecolumn);
+                    }
+                    while (!csvReader.EndOfData)
+                    {
+                        string[] fieldData = csvReader.ReadFields();
+                        //Making empty value as null
+                        for (int i = 0; i < fieldData.Length; i++)
+                        {
+                            if (fieldData[i] == "")
+                            {
+                                fieldData[i] = null;
+                            }
+                        }
+                        csvData.Rows.Add(fieldData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            ConnectionDB connectionDB = new ConnectionDB();
+            connectionDB.sqlBulkAdd(csvData); 
 
-        private void txtFilter_TextChanged(object sender, EventArgs e)
+            return csvData;
+        }
+    
+    private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             
         }
@@ -191,6 +232,45 @@ namespace Senior_Design
         {
             currentTable = "dbo.asset";
             showdata();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fbd = new OpenFileDialog();
+            
+            string path;
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                path = fbd.FileName;
+                //GetDataTabletFromCSVFile(path);
+                ConnectionDB connectionDB = new ConnectionDB();
+                connectionDB.OpenConnection();
+                var lineNumber = 0;
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        if (lineNumber != 0)
+                        {
+                            var values = line.Split(',');
+
+                            var sql = "INSERT INTO " + currentTable + " (asset_name, manufacturer,model_number,serial_number,os_version,client_version,asset_location_id,asset_status_id,asset_type_id) " +
+                                "VALUES ('" + values[0] + "','" + values[1] + "','" + values[2] + "','" + values[3] + "','" + values[4] +
+                                "','" + values[5] +  "','0','2','1');";
+                            try
+                            {
+                                connectionDB.ExecuteQueries(sql);
+                            }
+                            catch { }
+                            
+                        }
+                        lineNumber++;
+                    }
+                }
+                connectionDB.CloseConnection();
+            }
+            DialogResult res = MessageBox.Show("Import Complete", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
