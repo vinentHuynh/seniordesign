@@ -17,7 +17,6 @@ namespace Senior_Design
         {
             InitializeComponent();
             lblError.Hide();
-            string str;
         }
 
         private void NewUserForm_Load(object sender, EventArgs e)
@@ -38,7 +37,7 @@ namespace Senior_Design
             //need to verify unique username
             //loop through users in database ->
             //compare new username, error msg if not unique
-           bool verify = ReadUsernames2(username);
+            bool verify = ReadUsernames(username);
             if (verify)
             {
                 //create new user acct
@@ -61,14 +60,13 @@ namespace Senior_Design
             }
         }
 
+      
+        bool ReadUsernames(string username)
 
-        bool ReadUsernames2(string username)
         {
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-
-            SqlDataReader dr = connectionDB.DataReader("SELECT first_name from dbo.users"); //change for usernames later
-          
+            SqlDataReader dr = connectionDB.DataReader("SELECT first_name from dbo.users"); //test; change for usernames                  
             for(int i = 0; i < dr.FieldCount; i++)
             {
                 string name = dr.GetString(i);

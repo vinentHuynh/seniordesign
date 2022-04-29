@@ -80,6 +80,7 @@
             this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
             this.returnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.returnToolStripMenuItem.Text = "Return";
+            this.returnToolStripMenuItem.Click += new System.EventHandler(returnToolStripMenuItem_Click);
             // 
             // comboBox1
             // 
