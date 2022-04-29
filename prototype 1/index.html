@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>SAM</title>
+</head>
+
+<body>
+
+    <!-- header section -->
+    <div id="header">
+        <a href="index.html" class="header-brand">SAM</a>
+
+        <div class="nav">
+            <ul class="nav-list">
+                <li><a href="#">Account</a></li>
+                <li><a href="#" class="nav-settings">Settings</a></li>
+                <li><a href="#">log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="wrapper">
+    <!-- main section  -->
+    <div id="main">
+        <div class="grid">
+            <div class="view-asset">
+                <div class="main-item">
+                    <div class="item-name ">
+                        <a href="#view-asset">
+                            <h4><span>View Assets</span></h4>
+                        </a>
+                    </div>
+                    <div class="item-img">
+                        <a href="#view-asset"><img src="../icons2/view-96.png" alt="view-asset"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="maintenance-asset">
+                <div class="main-item">
+                    <div class="item-name">
+                        <a href="maintenance">
+                            <h4><span>Maintenance</span></h4>
+                        </a>
+                    </div>
+                    <div class="item-img">
+                        <a href="#maintenance"><img src="../icons2/maintenance-80.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-request">
+                <div class="main-item">
+                    <div class="item-name">
+                        <a href="#submit-request">
+                            <h4><span>Submit Request</span></h4>
+                        </a>
+                    </div>
+                    <div class="item-img">
+                        <a href="#submit-request"><img src="../icons2/icons8-support-96 (2).png"
+                                alt="submit-request"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="authorize-asset">
+                <div class="main-item">
+                    <div class="item-name">
+                        <a href="#authorize">
+                            <h4><span>Authorize</span></h4>
+                        </a>
+                    </div>
+                    <div class="item-img">
+                        <img src="../icons2/icons8-access-100.png" alt="authorize">
+                    </div>
+                </div>
+            </div>
+            <div class="exit-asset">
+                <div class="main-item">
+                    <div class="item-name">
+                        <a href="#exit">
+                            <h4><span>Exit</span></h4>
+                        </a>
+                    </div>
+                    <div class="item-img">
+                        <a href="#exit"><img src="../icons2/exit-64.png" alt="logout"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="settings">
+            <div class="settings-content">
+                
+            </div>
+        </div>
+
+        <div class="account">
+            <div class="account-content">
+
+            </div>
+        </div>
+
+        <div class="view-asset-content">
+            <div class="view-asset-content-item">
+
+            </div>
+        </div>
+
+        <div class="maintenace-asset-content">
+        
+        </div>
+
+        <div class="submit-request-content">
+            <div class="submit-request-item">
+                <div>
+
+                    <caption>Asset</caption>
+            
+                    <form action="#">
+                        <div>
+                            <label for="asset-id">Asset Id</label>
+                            <input type="number" id="asset-id">
+                        </div>
+            
+                        <div>
+                            <label for="asset-name">Name</label>
+                            <input type="text" name="asset-name" id="asset-name">
+                        </div>
+            
+                        <div>
+                            <caption>Asset location</caption>
+                            <div>
+                                <label for="asset-location-id">ID</label>
+                                <select name="asset-location-id" id="asset-location-id">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+            
+                                <label for="asset-location-value">Value</label>
+                                <select name="asset-location-description" id="asset-location-value">
+                                    <option value="loc1">Loc1</option>
+                                    <option value="loc2">Loc2</option>
+                                    <option value="loc3">Loc3</option>
+                                    <option value="loc4">Loc4</option>
+                                    <option value="loc5">Loc5</option>
+                                </select>
+            
+                                <label for="asset-location-description">Description</label>
+                                <select name="asset-location-description" id="asset-location-description">
+                                    <option value="lobby">Lobby</option>
+                                    <option value="office1">Office 1</option>
+                                    <option value="office2">Office 2</option>
+                                    <option value="breakRoom">Break Room</option>
+                                    <option value="printRoom">Print Room</option>
+                                </select>
+                            </div>
+                        </div>
+            
+                        <div>
+                            <caption>Asset status</caption>
+                            <div>
+                            <label for="asset-status-id">ID</label>
+                            <select name="asset-status-id" id="asset-status-id">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+            
+                            <label for="asset-status-value">Value</label>
+                            <select name="asset-location-value" id="asset-location-value">
+                                <option value="a">A</option>
+                                <option value="i">I</option>
+                                <option value="u">U</option>
+                                <option value="q">Q</option>
+                                <option value="b">B</option>
+                                <option value="r">R</option>
+                            </select>
+                            
+            
+            
+                            </div>
+                        </div>
+                    </form>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

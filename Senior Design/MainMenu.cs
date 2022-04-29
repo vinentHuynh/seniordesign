@@ -22,26 +22,8 @@ namespace Senior_Design
                 builder.Password = "Seniordesign2022";
                 builder.InitialCatalog = "Assets";
 
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    Console.WriteLine("\nQuery data example:");
-                    Console.WriteLine("=========================================\n");
-
-                    String sql = "SELECT description FROM dbo.asset_location";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                lblError.Text=  reader.GetString(0);
-                                lblError.Show();
-                            }
-                        }
-                    }
-                }
+                
+                
             }
             catch (SqlException e)
             {
@@ -86,7 +68,9 @@ namespace Senior_Design
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            NewUserForm newuserform = new NewUserForm();
+            newuserform.Show(); 
         }
 
         private void btnBorrow_Click(object sender, EventArgs e)
