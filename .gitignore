@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+*.cache
+Senior Design/obj/Debug/Senior Design.csproj.FileListAbsolute.txt
