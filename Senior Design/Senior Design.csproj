@@ -171,6 +171,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAssetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAssetForm.Designer.cs">
+      <DependentUpon>AddAssetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAssetForm.resx">
+      <DependentUpon>AddAssetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -248,3 +248,5 @@ D:\chris\move to flash\spring 2022\senior design\seniordesign\Senior Design\obj\
 D:\chris\move to flash\spring 2022\senior design\seniordesign\Senior Design\obj\Debug\Senior Design.csproj.CopyComplete
 D:\chris\move to flash\spring 2022\senior design\seniordesign\Senior Design\obj\Debug\Senior Design.exe
 D:\chris\move to flash\spring 2022\senior design\seniordesign\Senior Design\obj\Debug\Senior Design.pdb
+C:\Users\ssaat\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.NewUserForm.resources
+C:\Users\ssaat\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.AddAssetForm.resources

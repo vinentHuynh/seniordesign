@@ -62,7 +62,7 @@ namespace Senior_Design
                 this.dgvAssets.Columns["deleted"].Visible = false;
         }
         
-        //delete button
+        //delete button - delete an asset or a user depending on currentTable
         private void Button2_Click(object sender, EventArgs e)
         {
             Int32 selectedRowCount = this.dgvAssets.Rows.GetRowCount(DataGridViewElementStates.Selected);
@@ -130,10 +130,16 @@ namespace Senior_Design
             showdata();    // refresh screen
         }
 
-        //add button
+        //add button - display form to add an asset
         private void Button1_Click(object sender, EventArgs e)
         {
-            
+            AddAssetForm addForm = new AddAssetForm();
+            addForm.ShowDialog();
+        }
+
+        private void AddAssetForm_Cancel(object sender, EventArgs e)
+        {
+            this.Enabled = true;
         }
 
         private void SignOutToolStripMenuItem_Click(object sender, EventArgs e)
