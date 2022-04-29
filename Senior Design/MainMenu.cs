@@ -68,7 +68,9 @@ namespace Senior_Design
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            NewUserForm newuserform = new NewUserForm();
+            newuserform.Show(); 
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Senior_Design
 {
@@ -30,7 +30,6 @@ namespace Senior_Design
             string username;
             string password;
             string rePassword;
-            string str = "temp";    //delete after updating sql connection method
 
             username = this.txtUsername.Text;
             password = this.txtPassword.Text;
@@ -39,16 +38,20 @@ namespace Senior_Design
             //need to verify unique username
             //loop through users in database ->
             //compare new username, error msg if not unique
-           /* bool verify = ReadUsernames(str, username);
+           bool verify = ReadUsernames2(username);
             if (verify)
             {
-              //create new user acct
+                //create new user acct
+
+                //temp
+                lblError.Show();
+                lblError.Text = "New account created";
             }
             else
             {
                 lblError.Show();
                 lblError.Text = "Username taken";
-            }*/
+            }
 
             //verify matching passwords
             if(password != rePassword)
@@ -58,40 +61,25 @@ namespace Senior_Design
             }
         }
 
-       /* private static bool ReadUsernames(string connectionString, string username)
+
+        bool ReadUsernames2(string username)
         {
-            string query = "SELECT username FROM dbo.user";
+            ConnectionDB connectionDB = new ConnectionDB();
+            connectionDB.OpenConnection();
 
-            //don't need to establish a new connection, see borrow/adminForm for new connection
-            using (SqlConnection connection = new SqlConnection(connectionString)) 
+            SqlDataReader dr = connectionDB.DataReader("SELECT first_name from dbo.users"); //change for usernames later
+          
+            for(int i = 0; i < dr.FieldCount; i++)
             {
-                SqlCommand command =
-                    new SqlCommand(query, connection);
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                //call read before accessing data
-                while (reader.Read())
+                string name = dr.GetString(i);
+                if(name == username)
                 {
-                    string temp = reader[username].ToString();
-                    if(temp == username)
-                    {
-                        //return false if new username is not unique
-                        return false;
-                    }
-                    //ReadSingleRow((IDataRecord)reader);
+                    return false;
                 }
-
-                //call close when done reading
-                reader.Close();
-            }
-            //note: SqlConnection is automatically closed at end of 'using' block
-
-            //return true if new username is unique
+            }        
             return true;
-        }   */
-
+        }
+      
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
