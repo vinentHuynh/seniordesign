@@ -22,13 +22,23 @@ namespace Senior_Design
             //establish connection to database, only pull borrowable assets
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            this.dataGridView1.DataSource = connectionDB.ShowDataInGridView("SELECT * FROM 'dbo.asset'"/*WHERE borrow = 1*/);
+            this.dataGridView1.DataSource = connectionDB.ShowDataInGridView("SELECT * FROM dbo.asset where borrow = 1");
             connectionDB.CloseConnection();
         }
 
         //request button
-        private void RequestButton_click (object sender, EventArgs e) { 
+        private void RequestButton_click (object sender, EventArgs e) 
+        { 
+            //update asset borrow history
+            //create dialogue box confirming request
             
+        }
+
+        private void returnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
         }
 
         private void BorrowMenuClosing(object sender, FormClosingEventArgs e)

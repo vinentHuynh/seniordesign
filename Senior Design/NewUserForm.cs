@@ -17,7 +17,6 @@ namespace Senior_Design
         {
             InitializeComponent();
             lblError.Hide();
-            string str;
         }
 
         private void NewUserForm_Load(object sender, EventArgs e)
@@ -39,7 +38,11 @@ namespace Senior_Design
             //need to verify unique username
             //loop through users in database ->
             //compare new username, error msg if not unique
+<<<<<<< Updated upstream
            /* bool verify = ReadUsernames(str, username);
+=======
+           bool verify = ReadUsernames(username);
+>>>>>>> Stashed changes
             if (verify)
             {
               //create new user acct
@@ -58,12 +61,23 @@ namespace Senior_Design
             }
         }
 
+<<<<<<< Updated upstream
        /* private static bool ReadUsernames(string connectionString, string username)
+=======
+
+        bool ReadUsernames(string username)
+>>>>>>> Stashed changes
         {
             string query = "SELECT username FROM dbo.user";
 
+<<<<<<< Updated upstream
             //don't need to establish a new connection, see borrow/adminForm for new connection
             using (SqlConnection connection = new SqlConnection(connectionString)) 
+=======
+            SqlDataReader dr = connectionDB.DataReader("SELECT first_name from dbo.users"); //test; change for usernames
+          
+            for(int i = 0; i < dr.FieldCount; i++)
+>>>>>>> Stashed changes
             {
                 SqlCommand command =
                     new SqlCommand(query, connection);

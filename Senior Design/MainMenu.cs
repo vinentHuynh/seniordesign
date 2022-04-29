@@ -88,5 +88,12 @@ namespace Senior_Design
         {
 
         }
+
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BorrowForm borrowForm = new BorrowForm();
+            borrowForm.Show();
+        }
     }
 }
