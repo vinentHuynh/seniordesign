@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>SAM</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header starts -->
+    <div class="header-wrapper">
+        <div class="header">
+
+            <div class="nav">
+
+                <!-- brand starts -->
+                <div class="brand">
+                    <h2 class="logo"><a href="index.html">sam</a></h2>
+                </div>
+
+                <!-- nav list starts -->
+                <div class="nav-list">
+                    <ul>
+                        <li><a href="#" class="on-account">Account</a></li>
+                        <li><a href="#" class="on-settings">Settings</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="general-wrapper">
+        <!-- main starts -->
+        <div class="main-wrapper">
+            <div class="main">
+
+                <!-- view assset starts -->
+                <div class="view-asset-wrapper">
+                    <div class="view-asset">
+                        <div class="view-asset-name">
+                            <h3><a href="#" class="on-view-asset">View Asset</a></h3>
+                        </div>
+                        <div class="view-asset-img"><a href="#" class="on-view-asset"><img src="../icons2/view-96.png"
+                                    alt="view-asset" class="on-view-asset"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- maintenance -->
+                <div class="maintenance-wrapper">
+                    <div class="maintenance">
+                        <div class="maintenance-name">
+                            <h3><a href="#" class="on-maintenance">Maintenance</a></h3>
+                        </div>
+                        <div class="maintenance-img"><a href="#" class="on-maintenance"><img
+                                    src="../icons2/maintenance-80.png" alt="maintenance"></a></div>
+                    </div>
+                </div>
+
+                <!-- submit request starts-->
+                <div class="submit-request-wrapper">
+                    <div class="submit-request">
+
+                        <div class="submit-request-name">
+                            <h3><a href="#" class="on-submit-request">Submit Request</a></h3>
+                        </div>
+                        <div class="submit-request-img"><a href="#" class="on-submit-request"><img
+                                    src="../icons2/icons8-support-96 (2).png" alt="submit-request"
+                                    class="on-submit-request"></a></div>
+
+                    </div>
+                </div>
+
+                <!-- authorize starts-->
+                <div class="authorize-wrapper">
+                    <div class="authorize">
+
+                        <div class="authorize-name">
+                            <h3><a href="#" class="on-authorize">Authorize</a></h3>
+                        </div>
+                        <div class="authorize-img"><a href="#" class="on-authorize"><img
+                                    src="../icons2/icons8-access-100.png" alt="authorize" class="on-authorize"></a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- exit starts -->
+                <div class="exit-wrapper">
+                    <div class="exit">
+
+                        <div class="exit-name">
+                            <h3><a href="#" class="on-exit">Exit</a></h3>
+                        </div>
+                        <div class="exit-img"><a href="#" class="on-exit"><img src="../icons2/exit-64.png" alt="exit"
+                                    class="on-exit"></a></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- account content -->
+        <div class="account-wrapper">
+            <div class="account">
+
+                <div class="account-caption">
+                    <h1>Account</h1>
+                </div>
+                <form action="#" class="account-form">
+                    <div class="account-pic">
+
+                    </div>
+
+                    <div class="account-info">
+                        <div class="account-info-id">
+                            <label for="account-id">Account id</label>
+                            <input type="text" name="account-id" id="account-id">
+                        </div>
+                        <div class="account-name">
+                            <label for="account-first-name">First name</label>
+                            <input type="text" name="account-first-name" id="account-first-name">
+
+                            <label for="account-last-name">Account last name</label>
+                            <input type="text" name="account-last-name" id="account-last-name">
+                        </div>
+                        <div class="account-phone">
+                            <label for="account-phone">Phone number</label>
+                            <input type="tel" name="account-phone" id="account-phone">
+                        </div>
+                        <div class="account-email">
+                            <label for="account-email">Email</label>
+                            <input type="email" name="account-email" id="account-email">
+                        </div>
+                        <div class="account-delete">
+                            <button class="delete-account">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- settings content -->
+        <div class="settings-wrapper">
+            <div class="settings">
+                <div class="settings-caption">
+                    <h1>Settings</h1>
+                </div>
+                <form action="#" class="settings-form">
+
+                    <!-- header bg color -->
+                    <div class="header-wrapper-bg-color">
+                        <label for="header-bg-color">Header Background Color</label>
+                        <input type="color" name="header-bg-color" id="header-bg-color">
+                    </div>
+
+                    <!-- main bg color -->
+                    <div class="main-wrapper-bg-color">
+                        <label for="main-bg-color">Body background color</label>
+                        <input type="color" name="main-bg-color" id="main-bg-color">
+                    </div>
+
+                    <!-- body color -->
+                    <div class="body-color">
+                        <label for="main-color">Body Color</label>
+                        <input type="color" name="main-color" id="main-color">
+                    </div>
+
+                    <!-- body font weight -->
+                    <div class="body-font-weight">
+                        <label for="font-weight">Font weight</label>
+                        <input type="range" name="font-weight" id="font-weight">
+                    </div>
+
+                    <!-- body font size -->
+                    <div class="body-font-size">
+                        <label for="font-size">Font size</label>
+                        <input type="range" name="font-size" id="font-size" min="9" max="25" value="12">
+                    </div>
+
+                    <!-- reset button -->
+                    <div class="reset-all">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Help content -->
+        <div class="help-wrapper">
+            <div class="help">
+                <h1>Help</h1>
+            </div>
+        </div>
+        <!-- view asset content -->
+        <div class="view-asset-item-wrapper">
+            <div class="view-asset-item">
+                <h1>View Asset</h1>
+            </div>
+        </div>
+
+        <!-- Maintenance content -->
+        <div class="maintenance-item-wrapper">
+            <div class="maintenance-item">
+                <!-- maintenance item caption -->
+                <div class="maintenance-item-caption">
+                    <h1>Maintenance</h1>
+                </div>
+                <form action="#" class="maintenance-item-form">
+
+                    <!-- maintenant id -->
+                    <div class="maintenance-item-id">
+                        <label for="maintenance-id">ID</label>
+                        <input type="number" name="maintenance-id" id="maintenance-id">
+                    </div>
+
+                    <!-- maintenance asset id -->
+                    <div class="maintenance-item-asset-id">
+                        <label for="maintenance-asset-id">Asset id</label>
+                        <input type="number" name="maintenance-asset-id" id="maintenance-asset-id">
+                    </div>
+                    <!-- maintenant status -->
+                    <div class="maintenance-item-status">
+                        <div class="maintenance-item-status-caption">
+                            <h3>Maintenance status</h3>
+                        </div>
+                        <div class="maintenance-item-status-id">
+                            <label for="maintenance-status-id">ID</label>
+                            <input type="number" name="maintenance-status-id" id="maintenance-status-id">
+                        </div>
+
+                        <!-- maintenance item status value -->
+                        <div class="maintenance-item-status-value">
+                            <label for="maintenance-status-value">Value</label>
+                            <select name="maintenance-status-value" id="maintenance-status-value">
+                                <option value="s">S</option>
+                                <option value="r">R</option>
+                                <option value="i">I</option>
+                                <option value="c">C</option>
+                            </select>
+                        </div>
+
+                        <!-- maintenance item status description -->
+                        <div class="maintenance-item-status-description">
+                            <label for="maintenance-status-description">Description</label>
+                            <select name="maintenance-status-description" id="maintenance-status-description">
+                                <option value="schedule">Scheduled</option>
+                                <option value="requested">Requested</option>
+                                <option value="in-progress">In progress</option>
+                                <option value="complete">Complete</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- date out -->
+                    <div class="maintenance-item-dates-out">
+                        <label for="maintenance-date-out">Date out</label>
+                        <input type="date" name="maintenance-date-out" id="maintenance-date-out">
+                    </div>
+
+                    <!-- date in -->
+                    <div class="maintenance-item-dates-in">
+                        <label for="maintenance-date-in">Date in</label>
+                        <input type="date" name="maintenance-date-in" id="maintenance-date-in">
+                    </div>
+
+                    <!-- save button -->
+                    <div class="maintenance-item-save">
+                        <input type="submit" value="Save">
+                    </div>
+
+                    <!-- reset button -->
+                    <div class="maintenance-item-reset">
+                        <input type="reset" value="reset">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- submit reuqest content -->
+        <div class="submit-request-item-wrapper">
+            <div class="submit-request-item">
+                <div class="submit-request-item-caption">
+                    <h1>Request</h1>
+                </div>
+
+                <form action="#" class="submit-request-item-form">
+
+                </form>
+            </div>
+        </div>
+
+        <!-- authorize content -->
+        <div class="authorize-item-wrapper">
+            <div class="authorize-item">
+                <h1>Authorize</h1>
+            </div>
+        </div>
+
+        <!-- exit content -->
+        <div class="exit-item-wrapper">
+            <div class="exit-item">
+                <h1>Exit</h1>
+            </div>
+        </div>
+
+        <div class="drop-button">
+            <div class="bar"></div>
+        </div>
+    </div>
+
+
+
+    <script src="index.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,518 @@
+:root {
+    --h-bg-c: rgb(160, 160, 160, 0.4);
+    /*header background color*/
+    --h-bg-hover-c: rgb(231, 140, 140);
+    /**/
+    --m-item-bg-c: rgb(76, 133, 183);
+    /**/
+    --m-item-c: rgb(23, 25, 26);
+    /* main item color */
+    --nv-s-bg-co: rgb(242, 242, 242);
+    /* nav setting bg color*/
+    --s-for-bg-co: rgb(242, 242, 242);
+    /* nav setting bg color*/
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+/* header starts */
+
+.header-wrapper {
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px black;
+    width: 100%;
+    height: 120px;
+
+    background-color: var(--h-bg-c);
+
+    display: sticky;
+    border-radius: 0 0 10px 10px;
+    z-index: 1000;
+
+}
+
+.header {
+    height: 100%;
+    width: 100%;
+}
+
+.header a {
+    color: black;
+    display: block;
+    text-decoration: none;
+
+}
+
+.nav {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* brand starts */
+.brand {
+    width: 100%;
+    height: 25%;
+    padding: 2%;
+    text-align: center;
+
+}
+
+
+.logo a:hover {
+    background-color: green;
+}
+
+/* nav-list starts */
+.nav-list {
+    height: 40%;
+    width: 100%;
+    margin: 0;
+
+}
+
+.nav-list ul {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    list-style-type: none;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+li {
+
+    flex: 1;
+    text-align: center;
+}
+
+.nav-list li a:hover {
+    background-color: var(--h-bg-hover-c);
+    border-radius: 10px;
+}
+
+
+
+/* general wrapper */
+.general-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+/* main starts */
+
+.main-wrapper {
+    width: 100%;
+    height: calc(100vh - 120px);
+    position: relative;
+
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-rows: .5fr 1fr 1fr 1fr 1fr 1fr .5fr;
+
+    grid-template-areas:
+        ". . ."
+        ". view-asset-wrapper ."
+        ". maintenance-wrapper ."
+        ". submit-request-wrapper ."
+        ". authorize-wrapper . "
+        ". exit-wrapper . ";
+    gap: 10px 0;
+
+
+}
+
+.main a {
+    text-decoration: none;
+}
+
+/* starts grid area */
+.view-asset-wrapper {
+    grid-area: view-asset-wrapper;
+}
+
+.maintenance-wrapper {
+    grid-area: maintenance-wrapper;
+}
+
+.submit-request-wrapper {
+    grid-area: submit-request-wrapper;
+}
+
+.authorize-wrapper {
+    grid-area: authorize-wrapper;
+}
+
+.exit-wrapper {
+    grid-area: exit-wrapper;
+}
+
+.view-asset-wrapper img,
+.maintenance-wrapper img,
+.submit-request-wrapper img,
+.authorize-wrapper img,
+.exit-wrapper img {
+    width: 80px;
+    cursor: default;
+}
+
+.view-asset,
+.maintenance,
+.submit-request,
+.authorize,
+.exit {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+.view-asset-wrapper,
+.maintenance-wrapper,
+.submit-request-wrapper,
+.authorize-wrapper,
+.exit-wrapper {
+    background-color: var(--m-item-bg-c);
+    border-radius: 10px;
+}
+
+.view-asset-name a,
+.maintenance-name a,
+.submit-request-name a,
+.authorize-name a,
+.exit-name a {
+    display: block;
+    height: 50px;
+    padding: 15px;
+    color: var(--m-item-c);
+}
+
+.view-asset-name a:hover,
+.maintenance-name a:hover,
+.submit-request-name a:hover,
+.authorize-name a:hover,
+.exit-name a:hover {
+    background-color: yellow;
+
+}
+
+
+
+
+/* start menu */
+/* general wrapper */
+.account-wrapper,
+.settings-wrapper,
+.help-wrapper,
+.view-asset-item-wrapper,
+.maintenance-item-wrapper,
+.submit-request-item-wrapper,
+.authorize-item-wrapper,
+.exit-item-wrapper {
+    width: 100%;
+    height: calc(100vh - 120px);
+    /* border: 2px solid black; */
+    padding: 2px;
+    top: 100%;
+    background-color: white;
+    position: absolute;
+    transition: top 1s ease;
+
+}
+
+/* derop bouton starts */
+.dropbtn {
+    border: 2px solid black;
+    border-radius: 50%;
+
+
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .3s ease;
+    transition-delay: 1s;
+}
+
+/* 
+.dropbtn::after
+{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 3px solid red;
+    border-radius: 50px;
+} */
+
+
+.dropbtn .bar {
+    background-color: black;
+    width: 15px;
+    height: 3px;
+
+    border-radius: 10px;
+    transition-delay: 1s;
+
+}
+
+
+.display-account,
+.display-settings,
+.display-view-aasset,
+.display-maintenance,
+.display-submit-request,
+.display-authorize,
+.display-exit {
+    top: 0;
+}
+
+
+
+/* genaral content starts */
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=color],
+input[type=range],
+input[type=reset],
+input[type=submit],
+input[type=number],
+input[type=date],
+select {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1px 5px;
+    border-radius: 5px;
+
+
+}
+
+
+/* account  */
+
+.account {
+    /* border: 2px solid black; */
+    height: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 5% 80% 10%;
+    grid-template-areas:
+        " . "
+        "account-caption"
+        "account-form"
+        ". ";
+
+}
+
+.account-caption {
+    grid-area: account-caption;
+    text-align: center;
+}
+
+.account-form {
+    background-color: var(--nv-s-bg-co);
+    padding: 10px;
+    grid-area: account-form;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 45% 45% 5%;
+    grid-template-areas:
+        " . "
+        "account-pic"
+        "account-info"
+        ". ";
+}
+
+.account-pic {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid black;
+    grid-area: account-pic;
+
+}
+
+.account-info {
+    grid-area: account-info;
+    line-height: 25px;
+    padding: 10px;
+}
+
+.account-delete {
+    margin-top: 10px;
+}
+
+/* setting starts */
+
+.settings {
+    /* border: 2px solid black; */
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 10% 75% 10%;
+    grid-template-areas:
+        " . "
+        " settings-caption "
+        " settings-form "
+        ". ";
+
+}
+
+.settings-caption {
+    text-align: center;
+    padding: 5px 0;
+    grid-area: settings-caption;
+}
+
+.settings-form {
+    grid-area: settings-form;
+    padding: 20px;
+    line-height: 50px;
+    background-color: var(--nv-s-bg-co);
+    border-radius: 10px;
+}
+
+
+/* maintenance content starts */
+
+
+.maintenance-item {
+
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 10% 75% 10%;
+    grid-template-areas:
+        "."
+        "maintenance-item-caption"
+        "maintenance-item-form"
+        ".";
+    padding: 10px;
+
+}
+
+.maintenance-item-caption {
+
+    grid-area: maintenance-item-caption;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.maintenance-item-form {
+    grid-area: maintenance-item-form;
+    background-color: var(--nv-s-bg-co);
+    line-height: 25px;
+    padding: 10px;
+}
+
+
+
+/* on click  */
+
+
+@media screen and (min-width: 660px) {
+    .main {
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: .5fr 1fr 1fr .5fr;
+        grid-template-rows: 12.5% 25% 25% 25% 12.5%;
+
+        grid-template-areas:
+            ". . . ."
+            ". view-asset-wrapper maintenance-wrapper ."
+            ". submit-request-wrapper submit-request-wrapper ."
+            ". authorize-wrapper exit-wrapper ."
+            ". . . .";
+        gap: 20px 20px;
+        /* border: 2px solid red; */
+        text-align: center;
+
+    }
+
+
+    .settings {
+
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: 10% 5% 75% 10%;
+        grid-template-areas:
+            ". . ."
+            ". settings-caption ."
+            ". settings-form ."
+            ". . .";
+
+    }
+
+
+    .maintenance-item {
+
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: 10% 5% 75% 10%;
+        grid-template-areas:
+            ". . ."
+            ". maintenance-item-caption ."
+            ". maintenance-item-form ."
+            ". . . ";
+
+    }
+
+    .account {
+
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: 5% 10% 75% 10%;
+        grid-template-areas:
+            " . . ."
+            ". account-caption ."
+            ". account-form ."
+            ". . . ";
+
+
+
+    }
+}
