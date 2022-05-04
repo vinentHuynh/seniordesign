@@ -72,5 +72,12 @@ namespace Senior_Design
             NewUserForm newuserform = new NewUserForm();
             newuserform.Show(); 
         }
+
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BorrowForm borrowForm = new BorrowForm();
+            borrowForm.Show();
+        }
     }
 }

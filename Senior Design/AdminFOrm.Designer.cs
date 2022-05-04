@@ -182,6 +182,7 @@
             this.btnImport.TabIndex = 9;
             this.btnImport.Text = "Import CSV";
             this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // button2
             // 

@@ -10,10 +10,10 @@ namespace Senior_Design
     public class ConnectionDB
     {
         public SqlConnectionStringBuilder builder;
-        public string ConnectionString = "Server=tcp:sam-database.database.windows.net,1433;Initial Catalog=Assets;Persist Security Info=False;User ID=samadmin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        
-            
-        
+        public string ConnectionString = "Server=tcp:sam-database.database.windows.net,1433;Initial Catalog=Assets;Persist Security Info=False;User ID=samadmin;Password=SeniorDesign2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+
+
         SqlConnection con;
 
         public void OpenConnection()
@@ -27,7 +27,7 @@ namespace Senior_Design
             con = new SqlConnection(ConnectionString);
             con.Open();
         }
-        
+
 
         public void CloseConnection()
         {
@@ -47,13 +47,38 @@ namespace Senior_Design
             cmd.ExecuteNonQuery();
         }
 
-
+        
         public SqlDataReader DataReader(string Query_)
         {
             SqlCommand cmd = new SqlCommand(Query_, con);
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;
         }
+
+        public void sqlBulkAdd(DataTable csvData)
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "sam-database.database.windows.net";
+            builder.UserID = "samadmin";
+            builder.Password = "Seniordesign2022";
+            builder.InitialCatalog = "Assets";
+            ConnectionString = builder.ConnectionString;
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+            using (SqlBulkCopy s = new SqlBulkCopy(con))
+            {
+                    
+                s.DestinationTableName = "asset";
+                foreach (var column in csvData.Columns)
+                    s.ColumnMappings.Add(column.ToString(), column.ToString());
+                s.WriteToServer(csvData);
+            }
+            
+
+
+        }
+    
+        
 
 
 
