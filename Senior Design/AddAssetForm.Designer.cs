@@ -316,7 +316,7 @@
             this.Controls.Add(this.assetNameLbl);
             this.Controls.Add(this.assetName);
             this.Name = "AddAssetForm";
-            this.Text = "AddAssetForm";
+            this.Text = "Add Asset";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -72,7 +72,7 @@ namespace Senior_Design
                 // display confirmation message with list of selected records
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-                sb.Append("Are you sure you want to delete the following records?\n");
+                sb.Append("Are you sure you want to delete the following record(s)?\n");
 
                 for (int i = selectedRowCount - 1; i >= 0; i--)
                 {
@@ -138,6 +138,28 @@ namespace Senior_Design
             AddAssetForm addForm = new AddAssetForm();
             addForm.ShowDialog();   // disables admin form while add asset dialog is open
             showdata();     // refresh screen
+        }
+
+        //edit button - edit an existing asset
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            Int32 selectedRowCount = this.dgvAssets.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            // if exactly one row is selected, display edit dialog box, else display the corresponding error
+            if (selectedRowCount == 1)
+            {
+                EditAssetForm editForm = new EditAssetForm(this.dgvAssets.SelectedRows[0].Cells["id"].Value.ToString());    // create edit form for selected asset id
+                editForm.ShowDialog();   // disables admin form while edit asset dialog is open
+            }
+            else if (selectedRowCount == 0)
+            {
+                MessageBox.Show("Please select an asset to edit.\nClick the empty column to the left of a row to select it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Only one asset may be edited at a time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            showdata();    // refresh screen
         }
 
         private void SignOutToolStripMenuItem_Click(object sender, EventArgs e)

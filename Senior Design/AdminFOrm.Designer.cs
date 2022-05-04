@@ -36,6 +36,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.Button();
             this.txtRefresh = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.lblColumn = new System.Windows.Forms.Label();
-            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +121,29 @@
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.SignOutToolStripMenuItem_Click);
             // 
+            // tablesToolStripMenuItem
+            // 
+            this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.assetsToolStripMenuItem,
+            this.maintenanceToolStripMenuItem});
+            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.tablesToolStripMenuItem.Text = "Tables";
+            // 
+            // assetsToolStripMenuItem
+            // 
+            this.assetsToolStripMenuItem.Name = "assetsToolStripMenuItem";
+            this.assetsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.assetsToolStripMenuItem.Text = "Assets";
+            this.assetsToolStripMenuItem.Click += new System.EventHandler(this.assetsToolStripMenuItem_Click);
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.maintenanceToolStripMenuItem.Text = "Maintenance";
+            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
+            // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(675, 53);
@@ -129,6 +152,7 @@
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // txtSearch
             // 
@@ -186,29 +210,6 @@
             this.lblColumn.Size = new System.Drawing.Size(45, 13);
             this.lblColumn.TabIndex = 12;
             this.lblColumn.Text = "Column:";
-            // 
-            // tablesToolStripMenuItem
-            // 
-            this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.assetsToolStripMenuItem,
-            this.maintenanceToolStripMenuItem});
-            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.tablesToolStripMenuItem.Text = "Tables";
-            // 
-            // maintenanceToolStripMenuItem
-            // 
-            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.maintenanceToolStripMenuItem.Text = "Maintenance";
-            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
-            // 
-            // assetsToolStripMenuItem
-            // 
-            this.assetsToolStripMenuItem.Name = "assetsToolStripMenuItem";
-            this.assetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.assetsToolStripMenuItem.Text = "Assets";
-            this.assetsToolStripMenuItem.Click += new System.EventHandler(this.assetsToolStripMenuItem_Click);
             // 
             // AdminForm
             // 
