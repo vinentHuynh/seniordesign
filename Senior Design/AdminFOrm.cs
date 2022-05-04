@@ -46,8 +46,8 @@ namespace Senior_Design
 
             }
 
-            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView("SELECT * from " + currentTable);
-            SqlDataReader dr = connectionDB.DataReader("SELECT * from " + currentTable);
+            this.dgvAssets.DataSource = connectionDB.ShowDataInGridView(query);
+            SqlDataReader dr = connectionDB.DataReader(query);
             
             dr.Read();
             var columns = new List<string>();
@@ -66,6 +66,7 @@ namespace Senior_Design
         private void Button2_Click(object sender, EventArgs e)
         {
             Int32 selectedRowCount = this.dgvAssets.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            // if at least one row is selected, display delete dialog box, else display error
             if (selectedRowCount > 0)
             {
                 // display confirmation message with list of selected records
@@ -75,26 +76,27 @@ namespace Senior_Design
 
                 for (int i = selectedRowCount - 1; i >= 0; i--)
                 {
-                    sb.Append(this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString());
-                    sb.Append(" ");
-
                     // display different fields depending on the current table
                     if (currentTable == "dbo.asset")
                     {
-                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["asset"].Value.ToString());
+                        sb.Append("Asset ");
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString());
+                        sb.Append(": ");
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["asset_name"].Value.ToString());
                     }
                     else if (currentTable == "dbo.users")
                     {
-                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["first_name"].Value.ToString());
-                        sb.Append(" ");
-                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["last_name"].Value.ToString());
+                        sb.Append("User ");
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["id"].Value.ToString());
+                        sb.Append(": ");
+                        sb.Append(this.dgvAssets.SelectedRows[i].Cells["username"].Value.ToString());
                     }
                     sb.Append(Environment.NewLine);
                 }
 
                 DialogResult confirmDelete = MessageBox.Show(sb.ToString(), "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-                // if user clicks OK then delete records, else do nothing
+                // if user clicks OK then delete records, else close delete dialog box
                 if (confirmDelete == DialogResult.OK)
                 {
                     ConnectionDB connectionDB = new ConnectionDB();
@@ -108,12 +110,12 @@ namespace Senior_Design
                         // use different queries depending on the current table
                         if (currentTable == "dbo.asset")
                         {
-                            // change deleted column to 1 for selected assets (soft delete)
+                            // change deleted column to 1 for selected asset(s) (soft delete)
                             query = "UPDATE asset SET deleted = 1 WHERE id = " + id;
                         }
-                        else if (currentTable == "dbo.user")
+                        else if (currentTable == "dbo.users")
                         {
-                            // delete selected users from users table (hard delete)
+                            // delete selected user(s) from users table (hard delete)
                             query = "DELETE FROM users WHERE id = " + id;
                         }
                         connectionDB.ExecuteQueries(query);
@@ -124,7 +126,7 @@ namespace Senior_Design
             }
             else
             {
-                DialogResult noneSelected = MessageBox.Show("No rows selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult noneSelected = MessageBox.Show("No rows selected.\nClick the empty column to the left of a row to select it. Ctrl-click or shift-click to select multiple rows.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             showdata();    // refresh screen
@@ -134,12 +136,8 @@ namespace Senior_Design
         private void Button1_Click(object sender, EventArgs e)
         {
             AddAssetForm addForm = new AddAssetForm();
-            addForm.ShowDialog();
-        }
-
-        private void AddAssetForm_Cancel(object sender, EventArgs e)
-        {
-            this.Enabled = true;
+            addForm.ShowDialog();   // disables admin form while add asset dialog is open
+            showdata();     // refresh screen
         }
 
         private void SignOutToolStripMenuItem_Click(object sender, EventArgs e)
