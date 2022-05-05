@@ -127,7 +127,7 @@ namespace Senior_Design
             }
             else
             {
-                DialogResult noneSelected = MessageBox.Show("No rows selected.\nClick the empty column to the left of a row to select it. Ctrl-click or shift-click to select multiple rows.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult noneSelected = MessageBox.Show("No rows selected. Click the empty column to the left of a row to select it. Ctrl-click or shift-click to select multiple rows.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             showdata();    // refresh screen
@@ -153,7 +153,7 @@ namespace Senior_Design
             }
             else if (selectedRowCount == 0)
             {
-                MessageBox.Show("Please select an asset to edit.\nClick the empty column to the left of a row to select it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select an asset to edit. Click the empty column to the left of a row to select it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

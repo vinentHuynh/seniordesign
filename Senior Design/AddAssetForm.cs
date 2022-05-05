@@ -18,12 +18,12 @@ namespace Senior_Design
             connectionDB.OpenConnection();
             SqlDataReader drLoc = connectionDB.DataReader("SELECT description FROM asset_location");
             var locations = new List<string>();
-            //locations.Add("");    // uncomment if location default should not be specified
             while (drLoc.Read())
             {
                 locations.Add(drLoc["description"].ToString());
             }
             this.location.DataSource = locations;
+            this.location.DropDownStyle = ComboBoxStyle.DropDownList;
             connectionDB.CloseConnection();
 
             // fetch statuses for drop-down
@@ -35,24 +35,25 @@ namespace Senior_Design
                 statuses.Add(drStat["description"].ToString());
             }
             this.status.DataSource = statuses;
+            this.status.DropDownStyle = ComboBoxStyle.DropDownList;
             connectionDB.CloseConnection();
 
             // fetch types for drop-down
             connectionDB.OpenConnection();
             SqlDataReader drType = connectionDB.DataReader("SELECT description FROM asset_type");
             var types = new List<string>();
-            //types.Add("");        // uncomment if type default should not be specified
             while (drType.Read())
             {
                 types.Add(drType["description"].ToString());
             }
             this.type.DataSource = types;
+            this.type.DropDownStyle = ComboBoxStyle.DropDownList;
             connectionDB.CloseConnection();
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            // call validations
+            // call validation
             if (ValidateForm())
             {
                 return;     // go back to add form if there's an invalid field
@@ -141,81 +142,39 @@ namespace Senior_Design
             return flag;
         }
 
-        // TODO: location and type validations if we don't want to specify the default
-/*        // called as user tabs through location field
-        private void Location_Validating(object sender, CancelEventArgs e)
-        {
-            ValidateLocation();
-        }
-
-        private bool ValidateLocation()
-        {
-            bool flag = true;
-
-            if (string.IsNullOrWhiteSpace(location.Text))   // TODO: location must be selected from the drop-down
-            {
-                location.Focus();
-                errorProvider1.SetError(location, "Please select an asset location from the drop-down.");
-                flag = false;
-            }
-            else
-            {
-                errorProvider1.SetError(location, "");
-            }
-
-            return flag;
-        }
-
-        // called as user tabs through type field
-        private void Type_Validating(object sender, CancelEventArgs e)
-        {
-            ValidateType();
-        }
-
-        private bool ValidateType()
-        {
-            bool flag = true;
-
-            if (string.IsNullOrWhiteSpace(type.Text))   // TODO: type must be selected from the drop-down
-            {
-                type.Focus();
-                errorProvider1.SetError(type, "Please select an asset type from the drop-down.");
-                flag = false;
-            }
-            else
-            {
-                errorProvider1.SetError(type, "");
-            }
-
-            return flag;
-        }
-*/
-
         // called when user clicks save button
         private bool ValidateForm()
         {
-            bool bValidName = ValidateAssetName();
-            //bool bValidLoc = ValidateLocation();
-            //bool bValidType = ValidateType();
-            bool invalidField = false;
-
-            if (!bValidName)
+            // check if asset name field is empty
+            if (!ValidateAssetName())
             {
-                invalidField = true;
                 MessageBox.Show("Please enter a name for the asset.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
             }
-/*            else if (!bValidLoc)
+
+            // check table to make sure asset name is unique, even if asset has been "deleted"
+            ConnectionDB connectionDB = new ConnectionDB();
+            connectionDB.OpenConnection();
+            SqlDataReader drName = connectionDB.DataReader("SELECT asset_name, deleted FROM asset");
+            while (drName.Read())
             {
-                invalidField = true;
-                MessageBox.Show("Please select an asset location from the drop-down.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // if asset name exists in non-deleted list
+                if (assetName.Text == drName["asset_name"].ToString() && drName["deleted"].ToString() == "False")
+                {
+                    MessageBox.Show("Asset name already exists. Please enter a unique asset name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return true;
+                }
+                // else if asset name exists in recycling bin
+                else if (assetName.Text == drName["asset_name"].ToString() && drName["deleted"].ToString() == "True")
+                {
+                    MessageBox.Show("Asset name already exists (in recycling bin). Please enter a unique asset name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return true;
+                }
             }
-            else if (!bValidType)
-            {
-                invalidField = true;
-                MessageBox.Show("Please select an asset type from the drop-down.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-*/
-            return invalidField;
+
+            connectionDB.CloseConnection();
+
+            return false;
         }
         // ***** END OF VALIDATIONS *****
     }
