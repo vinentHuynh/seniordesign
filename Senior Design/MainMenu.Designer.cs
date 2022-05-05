@@ -36,12 +36,13 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.btnBorrow = new System.Windows.Forms.Button();
+            this.btnMaintenance = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(133, 50);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(132, 22);
             this.txtUsername.TabIndex = 0;
@@ -49,7 +50,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(133, 100);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(132, 22);
             this.txtPassword.TabIndex = 1;
@@ -78,7 +79,7 @@
             // btnEnter
             // 
             this.btnEnter.Location = new System.Drawing.Point(179, 178);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEnter.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(120, 28);
             this.btnEnter.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.btnCreate.Location = new System.Drawing.Point(39, 178);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(120, 28);
             this.btnCreate.TabIndex = 5;
@@ -111,7 +112,7 @@
             // 
             // btnBorrow
             // 
-            this.btnBorrow.Location = new System.Drawing.Point(108, 224);
+            this.btnBorrow.Location = new System.Drawing.Point(39, 224);
             this.btnBorrow.Name = "btnBorrow";
             this.btnBorrow.Size = new System.Drawing.Size(120, 28);
             this.btnBorrow.TabIndex = 8;
@@ -119,12 +120,23 @@
             this.btnBorrow.UseVisualStyleBackColor = true;
             this.btnBorrow.Click += new System.EventHandler(this.btnBorrow_Click);
             // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.Location = new System.Drawing.Point(179, 224);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(120, 28);
+            this.btnMaintenance.TabIndex = 9;
+            this.btnMaintenance.Text = "Maintenance";
+            this.btnMaintenance.UseVisualStyleBackColor = true;
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(329, 264);
+            this.ClientSize = new System.Drawing.Size(329, 278);
+            this.Controls.Add(this.btnMaintenance);
             this.Controls.Add(this.btnBorrow);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnCreate);
@@ -133,7 +145,7 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.ResumeLayout(false);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Button btnBorrow;
+        private System.Windows.Forms.Button btnMaintenance;
     }
 }

@@ -70,7 +70,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -197,6 +197,18 @@
     <Compile Include="EditAssetForm.Designer.cs">
       <DependentUpon>EditAssetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowInfoForm.Designer.cs">
+      <DependentUpon>BorrowInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceForm.Designer.cs">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,8 +238,14 @@
     <EmbeddedResource Include="BorrowForm.resx">
       <DependentUpon>BorrowForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BorrowInfoForm.resx">
+      <DependentUpon>BorrowInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditAssetForm.resx">
       <DependentUpon>EditAssetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceForm.resx">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

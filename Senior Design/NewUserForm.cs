@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.IO;
 
 namespace Senior_Design
 {
@@ -29,22 +30,47 @@ namespace Senior_Design
             string username;
             string password;
             string rePassword;
+            string phone_number = null;
+            string email = null;
 
             username = this.txtUsername.Text;
             password = this.txtPassword.Text;
             rePassword = this.txtRePassword.Text;
+            phone_number = this.txtPhone.Text;
+            email = this.txtEmail.Text;
 
-            //need to verify unique username
-            //loop through users in database ->
-            //compare new username, error msg if not unique
+            //verify matching passwords
+            if (password != rePassword)
+            {
+                lblError.Show();
+                lblError.Text = "Passwords do not match";
+            }
+
+     
             bool verify = ReadUsernames(username);
             if (verify)
             {
                 //create new user acct
+                string userCount = "SELECT COUNT(id) FROM users";
+                ConnectionDB newID = new ConnectionDB();
+                newID.OpenConnection();
+                int newUserID = newID.ExecuteScalar(userCount);
+                newID.CloseConnection();
 
-                //temp
-                lblError.Show();
-                lblError.Text = "New account created";
+                string newIDQuery = "INSERT INTO users(id, username, phone_number, email, password, approved)" +
+                    " VALUES ('" + newUserID + "', '" + username + "', '" + phone_number + "', '" + email + "', '" + password + "', NULL)";
+                ConnectionDB connectionDB = new ConnectionDB();
+                connectionDB.OpenConnection();
+                connectionDB.ExecuteQueries(newIDQuery);
+                connectionDB.CloseConnection();
+
+                //dialogue box confirming acct creation
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb.Append("New account created. Please log in from the main menu.");
+                DialogResult confirmAcct = MessageBox.Show(sb.ToString(), "Account Created", MessageBoxButtons.OK);
+                this.Close();
+                MainMenu mainmenu = new MainMenu();
+                mainmenu.Show();
             }
             else
             {
@@ -52,12 +78,7 @@ namespace Senior_Design
                 lblError.Text = "Username taken";
             }
 
-            //verify matching passwords
-            if(password != rePassword)
-            {
-                lblError.Show();
-                lblError.Text = "Passwords do not match";
-            }
+           
         }
 
       
@@ -66,7 +87,8 @@ namespace Senior_Design
         {
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            SqlDataReader dr = connectionDB.DataReader("SELECT first_name from dbo.users"); //test; change for usernames                  
+            SqlDataReader dr = connectionDB.DataReader("SELECT username from dbo.users");          
+            dr.Read();
             for(int i = 0; i < dr.FieldCount; i++)
             {
                 string name = dr.GetString(i);
@@ -91,6 +113,16 @@ namespace Senior_Design
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmail_Click(object sender, EventArgs e)
         {
 
         }

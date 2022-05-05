@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.IO;
 
 namespace Senior_Design
 {
@@ -15,9 +16,7 @@ namespace Senior_Design
     {
         public BorrowForm()
         {
-            InitializeComponent();
-
-    
+            InitializeComponent();    
 
             //establish connection to database, only pull borrowable assets
             ConnectionDB connectionDB = new ConnectionDB();
@@ -29,8 +28,8 @@ namespace Senior_Design
         //request button
         private void RequestButton_click (object sender, EventArgs e) 
         { 
-            //update asset borrow history
-            //create dialogue box confirming request
+            BorrowInfoForm borrowInfo = new BorrowInfoForm();
+            borrowInfo.Show();
             
         }
 

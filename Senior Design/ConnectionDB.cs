@@ -47,7 +47,25 @@ namespace Senior_Design
             cmd.ExecuteNonQuery();
         }
 
-        
+        public int ExecuteScalar(string query)
+        {            
+            int count = 0;
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "sam-database.database.windows.net";
+            builder.UserID = "samadmin";
+            builder.Password = "Seniordesign2022";
+            builder.InitialCatalog = "Assets";
+            ConnectionString = builder.ConnectionString;
+            con = new SqlConnection(ConnectionString);
+            
+            using (SqlCommand cmdCount = new SqlCommand(query, con))
+            {
+                con.Open();
+                count = (int)cmdCount.ExecuteScalar();
+            }
+         
+            return count;
+        }
         public SqlDataReader DataReader(string Query_)
         {
             SqlCommand cmd = new SqlCommand(Query_, con);

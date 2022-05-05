@@ -79,5 +79,11 @@ namespace Senior_Design
             BorrowForm borrowForm = new BorrowForm();
             borrowForm.Show();
         }
+
+        private void btnMaintenance_Click(object sender, EventArgs e)
+        {
+            MaintenanceForm maintform = new MaintenanceForm();
+            maintform.Show();
+        }
     }
 }
