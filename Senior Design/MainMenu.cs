@@ -9,6 +9,7 @@ namespace Senior_Design
         public MainMenu()
         {
             InitializeComponent();
+            this.txtPassword.PasswordChar = '*';
             string str;
             //SqlConnection myConn = new SqlConnection("server connection");
             //myConn.Open();
@@ -80,10 +81,20 @@ namespace Senior_Design
             borrowForm.Show();
         }
 
+
         private void btnMaintenance_Click(object sender, EventArgs e)
         {
             MaintenanceForm maintform = new MaintenanceForm();
             maintform.Show();
+        }
+
+        private void Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnEnter_Click(this, new EventArgs());
+            }
+
         }
     }
 }

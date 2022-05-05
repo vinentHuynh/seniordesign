@@ -226,7 +226,7 @@ namespace Senior_Design
             
         }
 
-        private void txtSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             if(this.cmbFields.Text !="")
             {
@@ -253,9 +253,10 @@ namespace Senior_Design
         private void txtRefresh_Click(object sender, EventArgs e)
         {
             showdata();
+            this.txtFilter.Text = "";
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void btnExport_click(object sender, EventArgs e)
         {
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
@@ -335,6 +336,14 @@ namespace Senior_Design
                 connectionDB.CloseConnection();
             }
             DialogResult res = MessageBox.Show("Import Complete", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnFilter_Execute(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(this, new EventArgs());
+            }
         }
     }
 }
