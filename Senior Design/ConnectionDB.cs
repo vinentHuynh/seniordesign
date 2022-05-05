@@ -77,6 +77,14 @@ namespace Senior_Design
 
 
         }
+
+        public int rowCount(string query)
+        {
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.CommandText = query;
+            int count = (Int32)cmd.ExecuteScalar();
+            return count;
+        }
     
         
 
