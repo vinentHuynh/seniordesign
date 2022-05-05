@@ -36,16 +36,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.Button();
-            this.txtRefresh = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.lblColumn = new System.Windows.Forms.Label();
-            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.assetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,7 @@
             this.txtFilter.Size = new System.Drawing.Size(100, 20);
             this.txtFilter.TabIndex = 3;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
+            this.txtFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnFilter_Execute);
             // 
             // cmbFields
             // 
@@ -121,6 +122,29 @@
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.SignOutToolStripMenuItem_Click);
             // 
+            // tablesToolStripMenuItem
+            // 
+            this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.assetsToolStripMenuItem,
+            this.maintenanceToolStripMenuItem});
+            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.tablesToolStripMenuItem.Text = "Tables";
+            // 
+            // assetsToolStripMenuItem
+            // 
+            this.assetsToolStripMenuItem.Name = "assetsToolStripMenuItem";
+            this.assetsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.assetsToolStripMenuItem.Text = "Assets";
+            this.assetsToolStripMenuItem.Click += new System.EventHandler(this.assetsToolStripMenuItem_Click);
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.maintenanceToolStripMenuItem.Text = "Maintenance";
+            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
+            // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(675, 53);
@@ -130,25 +154,25 @@
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
-            // txtSearch
+            // btnSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(416, 56);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(75, 23);
-            this.txtSearch.TabIndex = 7;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.UseVisualStyleBackColor = true;
-            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            this.btnSearch.Location = new System.Drawing.Point(416, 56);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtRefresh
+            // btnRefresh
             // 
-            this.txtRefresh.Location = new System.Drawing.Point(416, 28);
-            this.txtRefresh.Name = "txtRefresh";
-            this.txtRefresh.Size = new System.Drawing.Size(75, 23);
-            this.txtRefresh.TabIndex = 8;
-            this.txtRefresh.Text = "Refresh";
-            this.txtRefresh.UseVisualStyleBackColor = true;
-            this.txtRefresh.Click += new System.EventHandler(this.txtRefresh_Click);
+            this.btnRefresh.Location = new System.Drawing.Point(416, 28);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.txtRefresh_Click);
             // 
             // btnImport
             // 
@@ -168,7 +192,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Export CSV";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.Click += new System.EventHandler(this.btnExport_click);
             // 
             // lblFilter
             // 
@@ -188,29 +212,6 @@
             this.lblColumn.TabIndex = 12;
             this.lblColumn.Text = "Column:";
             // 
-            // tablesToolStripMenuItem
-            // 
-            this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.assetsToolStripMenuItem,
-            this.maintenanceToolStripMenuItem});
-            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.tablesToolStripMenuItem.Text = "Tables";
-            // 
-            // maintenanceToolStripMenuItem
-            // 
-            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.maintenanceToolStripMenuItem.Text = "Maintenance";
-            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
-            // 
-            // assetsToolStripMenuItem
-            // 
-            this.assetsToolStripMenuItem.Name = "assetsToolStripMenuItem";
-            this.assetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.assetsToolStripMenuItem.Text = "Assets";
-            this.assetsToolStripMenuItem.Click += new System.EventHandler(this.assetsToolStripMenuItem_Click);
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,8 +222,8 @@
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnImport);
-            this.Controls.Add(this.txtRefresh);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cmbFields);
             this.Controls.Add(this.txtFilter);
@@ -253,8 +254,8 @@
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button txtSearch;
-        private System.Windows.Forms.Button txtRefresh;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblFilter;
