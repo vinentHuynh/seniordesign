@@ -30,31 +30,21 @@ namespace Senior_Design
             string password;
             string rePassword;
 
-            username = this.textBox1.Text;
-            password = this.textBox2.Text;
-            rePassword = this.textBox3.Text;
+            username = this.txtUsername.Text;
+            password = this.txtPassword.Text;
+            rePassword = this.txtRePassword.Text;
 
-
-            //verify matching passwords
-            if (password != rePassword)
-            {
-                lblError.Show();
-                lblError.Text = "Passwords do not match";
-            }
-
+            //need to verify unique username
             //loop through users in database ->
             //compare new username, error msg if not unique
             bool verify = ReadUsernames(username);
             if (verify)
             {
                 //create new user acct
-                string query = "INSERT INTO users(id, username, phone_number, email) " +
-                    "VALUES (6, '" + username + "', NULL, NULL)" ;
-                CreateAcct(query);
 
                 //temp
                 lblError.Show();
-                lblError.Text = "New account created. Return to log in";
+                lblError.Text = "New account created";
             }
             else
             {
@@ -62,46 +52,30 @@ namespace Senior_Design
                 lblError.Text = "Username taken";
             }
 
-   
+            //verify matching passwords
+            if(password != rePassword)
+            {
+                lblError.Show();
+                lblError.Text = "Passwords do not match";
+            }
         }
 
       
         bool ReadUsernames(string username)
-        {
-            bool verify = true;
 
-            ConnectionDB connectionDB = new ConnectionDB();
-            connectionDB.OpenConnection();           
-                        
-            int userCount = connectionDB.rowCount("SELECT COUNT(username) FROM users");        
-
-            SqlDataReader dr = connectionDB.DataReader("SELECT username FROM users"); //test; change for usernames 
-
-            //loop through names, check if desired acct name already exists
-            int count = 0;
-            while(dr.Read())
-            {
-                
-                string name = dr.GetString(count);
-                if (name == username)
-                {
-                    verify = false;
-                }
-                else
-                    verify = true;
-
-                count++;
-            }
-            dr.Close();
-            return verify;   
-        }
-
-        void CreateAcct(string query)
         {
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            connectionDB.ExecuteQueries(query);
-            connectionDB.CloseConnection();
+            SqlDataReader dr = connectionDB.DataReader("SELECT first_name from dbo.users"); //test; change for usernames                  
+            for(int i = 0; i < dr.FieldCount; i++)
+            {
+                string name = dr.GetString(i);
+                if(name == username)
+                {
+                    return false;
+                }
+            }        
+            return true;
         }
       
         private void btnCancel_Click(object sender, EventArgs e)

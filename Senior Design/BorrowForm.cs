@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using System.IO;
 
 namespace Senior_Design
 {
@@ -16,26 +15,23 @@ namespace Senior_Design
     {
         public BorrowForm()
         {
-            InitializeComponent();    
+            InitializeComponent();
+
+    
 
             //establish connection to database, only pull borrowable assets
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
             this.dataGridView1.DataSource = connectionDB.ShowDataInGridView("SELECT * FROM dbo.asset where borrow = 1");
-            connectionDB.CloseConnection(); 
+            connectionDB.CloseConnection();
         }
 
         //request button
         private void RequestButton_click (object sender, EventArgs e) 
-        {
-            Int32 selectedRowCount = this.dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            BorrowInfoForm borrowInfoForm = new BorrowInfoForm();
-            borrowInfoForm.Show();   
-        }
-
-        public int asset_id(int asset_id)
-        {
-            return asset_id;
+        { 
+            //update asset borrow history
+            //create dialogue box confirming request
+            
         }
 
         private void returnToolStripMenuItem_Click(object sender, EventArgs e)

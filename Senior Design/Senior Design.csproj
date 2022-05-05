@@ -191,19 +191,11 @@
     <Compile Include="BorrowForm.Designer.cs">
       <DependentUpon>BorrowForm.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="EditAssetForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditAssetForm.Designer.cs">
       <DependentUpon>EditAssetForm.cs</DependentUpon>
-=======
-    <Compile Include="BorrowInfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BorrowInfoForm.Designer.cs">
-      <DependentUpon>BorrowInfoForm.cs</DependentUpon>
->>>>>>> Stashed changes
     </Compile>
     <Compile Include="NewUserForm.cs">
       <SubType>Form</SubType>
@@ -234,13 +226,8 @@
     <EmbeddedResource Include="BorrowForm.resx">
       <DependentUpon>BorrowForm.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< Updated upstream
     <EmbeddedResource Include="EditAssetForm.resx">
       <DependentUpon>EditAssetForm.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="BorrowInfoForm.resx">
-      <DependentUpon>BorrowInfoForm.cs</DependentUpon>
->>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
