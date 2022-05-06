@@ -29,7 +29,7 @@ namespace Senior_Design
         private void RequestButton_click (object sender, EventArgs e) 
         { 
             BorrowInfoForm borrowInfo = new BorrowInfoForm();
-            borrowInfo.Show();
+            borrowInfo.ShowDialog();
             
         }
 

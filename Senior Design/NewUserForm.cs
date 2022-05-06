@@ -87,16 +87,17 @@ namespace Senior_Design
         {
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            SqlDataReader dr = connectionDB.DataReader("SELECT username from dbo.users");          
-            dr.Read();
-            for(int i = 0; i < dr.FieldCount; i++)
+            SqlDataReader dr = connectionDB.DataReader("SELECT username FROM users");    
+            var usernames = new List<string>();           
+            while(dr.Read())
             {
-                string name = dr.GetString(i);
-                if(name == username)
-                {
+              usernames.Add(dr["username"].ToString());
+            }
+            for(int i = 0; i < usernames.Count; i++)
+            {
+                if (usernames[i] == username)
                     return false;
-                }
-            }        
+            }
             return true;
         }
       
