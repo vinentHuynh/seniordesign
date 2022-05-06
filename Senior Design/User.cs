@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Senior_Design
 {
-    public partial class User : Form
+    public partial class Test : Form
     {
-        public User()
+        public Test()
         {
             //initalize
             InitializeComponent();
