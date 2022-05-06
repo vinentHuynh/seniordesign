@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using System.Data;
+
 
 namespace Senior_Design
 {
@@ -60,6 +61,31 @@ namespace Senior_Design
                     verify = true;
             }
             connectionDB.CloseConnection();
+            //DECRYPTION
+
+            //query = "SELECT password,username from users where  username = '" + username + "'";
+            
+            //connectionDB.OpenConnection();
+            //DataTable dt = new DataTable();
+            //dt = connectionDB.DataAdapter(query, username);
+
+            //string dUser = dt.Rows[0]["username"].ToString();
+            //string dPassword = dt.Rows[0]["password"].ToString();
+
+            //bool flag = Helper.VerifyHash(password, "SHA512", dPassword);
+
+            //if (dUser == dPassword && flag == true)
+            //{
+            //    AdminForm adminform = new AdminForm();
+            //    adminform.Show();
+            //    lblError.Hide();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    lblError.Show();
+            //    lblError.Text = "Incorrect username or password";
+            //}
 
             //password checking
             if (verify && username == "admin")

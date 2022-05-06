@@ -50,6 +50,13 @@ namespace Senior_Design
             bool verify = ReadUsernames(username);
             if (verify)
             {
+                //encrypt password and email
+                string Epass = Helper.ComputeHash(password, "SHA512", null);
+                string Eemail = Helper.ComputeHash(email, "SHA512", null);
+                string Ephone = Helper.ComputeHash(phone_number, "SHA512", null);
+
+
+
                 //create new user acct
                 string userCount = "SELECT COUNT(id) FROM users";
                 ConnectionDB newID = new ConnectionDB();

@@ -20,14 +20,7 @@ namespace Senior_Design
         public AdminForm()
         {
             InitializeComponent();
-            //https://stackoverflow.com/questions/1054984/how-can-i-get-column-names-from-a-table-in-sql-server
-            //create for loop to add columns for dataGrid and filters
-
-            //for(int i = 0; i < numColumns; i++)
-            //this.dgvAssets.columns[i].header = columnName[i]
-
-            //OR automatically add data from sql 
-            //https://stackoverflow.com/questions/18113278/populate-a-datagridview-with-sql-query-results
+            
 
             showdata();
 

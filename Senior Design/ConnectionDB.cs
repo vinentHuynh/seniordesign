@@ -72,7 +72,15 @@ namespace Senior_Design
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;
         }
-
+        public DataTable DataAdapter(string Query_,string user)
+        {
+            SqlCommand cmd= new SqlCommand(Query_, con);
+            cmd.Parameters.AddWithValue("@username", user);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            return dt;
+        }
         public void sqlBulkAdd(DataTable csvData)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();

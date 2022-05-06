@@ -203,6 +203,7 @@
     <Compile Include="BorrowInfoForm.Designer.cs">
       <DependentUpon>BorrowInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="MaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
