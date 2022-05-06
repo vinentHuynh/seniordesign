@@ -43,14 +43,17 @@ namespace Senior_Design
             columns.Add("");
             for (int i = 0; i < dr.FieldCount; i++)
             {
-                columns.Add(dr.GetName(i));
+                if(dr.GetName(i) != "deleted")
+                    columns.Add(dr.GetName(i));
             }
             this.comboBox1.DataSource = columns;
+            
             connectionDB.CloseConnection();
             if (flag)
                 this.dataGridView1.Columns["deleted"].Visible = false;
         }
 
+        //search button
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (this.comboBox1.Text != "")
@@ -79,17 +82,21 @@ namespace Senior_Design
             showdata();
         }
 
+        //refresh button
         private void txtRefresh_Click(object sender, EventArgs e)
         {
             showdata();
             this.textBox1.Text = "";
         }
+
+        //switch table view
         private void assetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentTable = "dbo.asset";
             showdata();
         }
 
+        
         private void btnFilter_Execute(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

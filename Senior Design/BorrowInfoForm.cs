@@ -113,6 +113,13 @@ namespace Senior_Design
                     connectionDB.ExecuteQueries(query);
                     connectionDB.CloseConnection();
 
+                    //update borrow status
+                    string updateq = "UPDATE asset SET borrow = 0 WHERE id = " + asset_id;
+                    ConnectionDB updateConn = new ConnectionDB();
+                    updateConn.OpenConnection();
+                    updateConn.ExecuteQueries(updateq);
+                    updateConn.CloseConnection();
+
                     //dialogue box confirming borrow request
                     System.Text.StringBuilder sb2 = new System.Text.StringBuilder();
                     sb2.Append("Request created. Please contact system administrator for further detail.");
