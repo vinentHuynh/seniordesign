@@ -29,12 +29,15 @@ namespace Senior_Design
             ConnectionDB checkID = new ConnectionDB();
             checkID.OpenConnection();
             SqlDataReader dr = checkID.DataReader(checkAssetID);
-            dr.Read();
+            var assetID = new List<int>();
             bool verify = false;
-            for(int i = 0; i < dr.FieldCount; i++)
+            while(dr.Read())
             {
-                int id = Convert.ToInt32(dr[i].ToString());
-                if (id == asset_id)
+                assetID.Add(Convert.ToInt32(dr["id"].ToString()));
+            }
+            for (int i = 0; i< assetID.Count; i++)
+            {
+                if (assetID[i] == asset_id)
                     verify = true;
             }
             if (verify)
