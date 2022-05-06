@@ -211,6 +211,12 @@ namespace Senior_Design
         // called when user clicks save button
         private bool ValidateForm()
         {
+            // get asset id from label for SQL query
+            string assetIDLbl = this.assetID.Text;
+            char[] idSeparator = { ' ' };
+            String[] idLblComponents = assetIDLbl.Split(idSeparator);
+            string assetID = idLblComponents[2];
+
             // check if asset name field is empty
             if (!ValidateAssetName())
             {
@@ -221,7 +227,7 @@ namespace Senior_Design
             // check table to make sure asset name is unique, even if asset has been "deleted"
             ConnectionDB connectionDB = new ConnectionDB();
             connectionDB.OpenConnection();
-            SqlDataReader drName = connectionDB.DataReader("SELECT asset_name, deleted FROM asset");
+            SqlDataReader drName = connectionDB.DataReader("SELECT asset_name, deleted FROM asset WHERE id != " + assetID);     // fetch all other asset names
             while (drName.Read())
             {
                 // if asset name exists in non-deleted list
