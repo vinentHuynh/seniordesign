@@ -22,3 +22,16 @@ C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Desi
 C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.csproj.CoreCompileInputs.cache
 C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.exe
 C:\Users\vince\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.pdb
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\bin\Debug\Senior Design.exe.config
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\bin\Debug\Senior Design.exe
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\bin\Debug\Senior Design.pdb
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.csproj.AssemblyReference.cache
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.csproj.SuggestedBindingRedirects.cache
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.AdminForm.resources
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.MainMenu.resources
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.Properties.Resources.resources
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior_Design.User.resources
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.csproj.GenerateResource.cache
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.csproj.CoreCompileInputs.cache
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.exe
+C:\Users\kourt\OneDrive\Documents\GitHub\seniordesign\Senior Design\obj\Debug\Senior Design.pdb
