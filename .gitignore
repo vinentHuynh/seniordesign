@@ -338,5 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-Senior Design/.vs/Senior Design/v16/Server/sqlite3/db.lock
-Senior Design/.vs/Senior Design/v16/Server/sqlite3/db.lock
+*.cache
+Senior Design/obj/Debug/Senior Design.csproj.FileListAbsolute.txt
